@@ -1,0 +1,38 @@
+package com.karan.projectdemo.faculty.controller;
+
+import com.karan.projectdemo.faculty.dto.FacultyDTO;
+import com.karan.projectdemo.faculty.service.FacultyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+public class FacultyController {
+    private final FacultyService service;
+    @Autowired
+    public FacultyController(FacultyService service) {
+        this.service = service;
+    }
+    @GetMapping("/faculties")
+    public List<FacultyDTO> getAllFaculty(){
+        return service.getAllFaculty();
+    }
+    @GetMapping("/faculties/{id}")
+    public FacultyDTO getFacutlyByID(@PathVariable int id){
+        return service.getFacultyByID(id);
+    }
+    @PostMapping("/faculties")
+    public FacultyDTO createNewFaculty(@RequestBody FacultyDTO dto){
+        return service.createFaculty(dto);
+    }
+    @PutMapping("/faculties/{id}")
+    public FacultyDTO updateFaculty(@PathVariable int id , @RequestBody FacultyDTO dto){
+        return service.updateFaculty(id,dto);
+    }
+    @DeleteMapping("/faculties/{id}")
+    public void deleteFaculty(@PathVariable int id){
+        service.deleteFaculty(id);
+    }
+}
