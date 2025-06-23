@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/faculties")
 public class FacultyController {
     private final FacultyService service;
     @Autowired
@@ -19,23 +19,23 @@ public class FacultyController {
     public String home() {
         return "index";  // Corresponds to index.html or index.html in templates
     }
-    @GetMapping("/faculties")
+    @GetMapping("")
     public List<FacultyDTO> getAllFaculty(){
         return service.getAllFaculty();
     }
-    @GetMapping("/faculties/{id}")
+    @GetMapping("/{id}")
     public FacultyDTO getFacutlyByID(@PathVariable int id){
         return service.getFacultyByID(id);
     }
-    @PostMapping("/faculties")
+    @PostMapping("")
     public FacultyDTO createNewFaculty(@RequestBody FacultyDTO dto){
         return service.createFaculty(dto);
     }
-    @PutMapping("/faculties/{id}")
+    @PutMapping("/{id}")
     public FacultyDTO updateFaculty(@PathVariable int id , @RequestBody FacultyDTO dto){
         return service.updateFaculty(id,dto);
     }
-    @DeleteMapping("/faculties/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFaculty(@PathVariable int id){
         service.deleteFaculty(id);
     }

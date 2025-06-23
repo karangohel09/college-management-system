@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/students")
 public class StudentController {
     private final StudentService service;
     @Autowired
@@ -19,23 +19,23 @@ public class StudentController {
     public String home() {
         return "index";  // Corresponds to index.html or index.html in templates
     }
-    @GetMapping("/students")
+    @GetMapping("")
     public List<StudentDTO> getAllStudent(){
         return service.getAllStudent();
     }
-    @GetMapping("/students/{id}")
+    @GetMapping("/{id}")
     public StudentDTO getById(@PathVariable int id){
         return service.getByID(id);
     }
-    @PostMapping("/students")
+    @PostMapping("/")
     public StudentDTO createStudent(@RequestBody StudentDTO dto){
         return  service.createStudent(dto);
     }
-    @PutMapping("students/{id}")
+    @PutMapping("/{id}")
     public StudentDTO updateStudent(@PathVariable int id,@RequestBody StudentDTO dto){
         return service.updateStudent(id,dto);
     }
-    @DeleteMapping("students/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         service.deleteStudent(id);
     }
