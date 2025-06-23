@@ -15,6 +15,10 @@ public class FacultyController {
     public FacultyController(FacultyService service) {
         this.service = service;
     }
+    @GetMapping("/")
+    public String home() {
+        return "index";  // Corresponds to index.html or index.html in templates
+    }
     @GetMapping("/faculties")
     public List<FacultyDTO> getAllFaculty(){
         return service.getAllFaculty();
