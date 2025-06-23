@@ -15,10 +15,6 @@ public class StudentController {
     public StudentController(StudentService service) {
         this.service = service;
     }
-    @GetMapping("/")
-    public String home() {
-        return "index";  // Corresponds to index.html or index.html in templates
-    }
     @GetMapping("")
     public List<StudentDTO> getAllStudent(){
         return service.getAllStudent();
