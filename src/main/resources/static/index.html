@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Management System</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1>College Management System</h1>
+
+<div class="container">
+    <!-- Faculty Section -->
+    <section>
+        <h2>Faculty Management</h2>
+        <form id="faculty-form">
+            <input type="hidden" id="faculty-id" />
+            <input type="text" id="faculty-name" placeholder="Name" required />
+            <input type="text" id="faculty-subject" placeholder="Subject" required />
+            <input type="number" id="faculty-age" placeholder="Age" required />
+            <input type="number" id="faculty-salary" placeholder="Salary" required />
+            <button type="submit">Save Faculty</button>
+        </form>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Name</th><th>Subject</th><th>Age</th><th>Salary</th><th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="faculty-table-body"></tbody>
+        </table>
+    </section>
+
+    <!-- Student Section -->
+    <section>
+        <h2>Student Management</h2>
+        <form id="student-form">
+            <input type="hidden" id="student-id" />
+            <input type="number" id="student-roll" placeholder="Roll No" required />
+            <input type="text" id="student-name" placeholder="Name" required />
+            <input type="number" id="student-age" placeholder="Age" required />
+            <input type="number" id="student-marks" placeholder="Marks" required />
+            <button type="submit">Save Student</button>
+        </form>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Roll No</th><th>Name</th><th>Age</th><th>Marks</th><th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="student-table-body"></tbody>
+        </table>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
